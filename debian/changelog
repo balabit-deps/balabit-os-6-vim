@@ -1,3 +1,13 @@
+vim (2:7.4.1689-3ubuntu1.2) xenial-security; urgency=medium
+
+  * SECURITY UPDATE: arbitrary shell execution via modelines
+    - debian/patches/upstream/CVE-2016-1248.patch: Only allow valid
+      characters in 'filetype', 'syntax' and 'keymap'. Tests adapted
+      back to vim 7.4 by James McCoy of Debian, thanks!
+    - CVE-2016-1248
+
+ -- Steve Beattie <sbeattie@ubuntu.com>  Thu, 24 Nov 2016 08:44:48 -0800
+
 vim (2:7.4.1689-3ubuntu1.1) xenial; urgency=medium
 
   * debian/rules: Specify python3 setup correctly (LP: #1574897)

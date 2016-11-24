@@ -8,3 +8,4 @@
 ubuntu-grub-syntax.patch
 update-upstart-syntax.patch
 ubuntu-releases.patch
+CVE-2016-1248.patch
