@@ -1,3 +1,17 @@
+vim (2:7.4.1689-3ubuntu1.3) xenial-security; urgency=medium
+
+  * SECURITY UPDATE: Arbitrary code execution
+    - debian/patches/CVE-2019-12735.patch: disallow
+      sourcing a file in the sandbox in src/getchar.c
+    - CVE-2019-12735
+  * SECURITY UPDATE: Buffer overflow
+    - debian/patches/CVE-2017-5953.patch: check for an
+      invalid length in order to avoid a overflow in
+      src/spell.c.
+    - CVE-2017-5953
+
+ -- Leonidas S. Barbosa <leo.barbosa@canonical.com>  Fri, 07 Jun 2019 12:35:43 -0300
+
 vim (2:7.4.1689-3ubuntu1.2) xenial-security; urgency=medium
 
   * SECURITY UPDATE: arbitrary shell execution via modelines
