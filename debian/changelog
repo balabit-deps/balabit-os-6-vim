@@ -1,3 +1,21 @@
+vim (2:7.4.1689-3ubuntu1.4) xenial-security; urgency=medium
+
+  * SECURITY UPDATE: Denial of service
+    - debian/patches/upstream/patch-8.0.070*.patch: check the event
+      event for being out of range in src/fileio.c; set w_s pointer if w_buffer
+      was NULL in src/ex_cmds.c.
+    - CVE-2017-11109
+  * SECURITY UPDATE: Integer overflow
+    - debian/patches/upstream/patch-8.0.0377*.patch: check if allocated size
+      is not too big in src/undo.c.
+    - CVE-2017-6349
+  * SECURITY UPDATE: Buffer overflow
+    - debian/patches/upstream/patch-8.0.0378*.patch: check if allocated size
+      is not too big in src/undo.c.
+    - CVE-2017-6350
+
+ -- Leonidas S. Barbosa <leo.barbosa@canonical.com>  Wed, 18 Mar 2020 11:06:17 -0300
+
 vim (2:7.4.1689-3ubuntu1.3) xenial-security; urgency=medium
 
   * SECURITY UPDATE: Arbitrary code execution

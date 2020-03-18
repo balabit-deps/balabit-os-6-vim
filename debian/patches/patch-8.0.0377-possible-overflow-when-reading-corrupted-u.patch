@@ -1,0 +1,34 @@
+From: Bram Moolenaar <Bram@vim.org>
+Date: Sun, 26 Feb 2017 18:11:36 +0100
+Subject: patch 8.0.0377: possible overflow when reading corrupted undo file
+
+Problem:    Possible overflow when reading corrupted undo file.
+Solution:   Check if allocated size is not too big. (King)
+---
+ src/undo.c    | 5 +++--
+ src/version.c | 2 ++
+ 2 files changed, 5 insertions(+), 2 deletions(-)
+
+Index: vim-7.4.1689/src/undo.c
+===================================================================
+--- vim-7.4.1689.orig/src/undo.c
++++ vim-7.4.1689/src/undo.c
+@@ -1787,7 +1787,7 @@ u_read_undo(char_u *name, char_u *hash,
+     linenr_T	line_lnum;
+     colnr_T	line_colnr;
+     linenr_T	line_count;
+-    int		num_head = 0;
++    long	num_head = 0;
+     long	old_header_seq, new_header_seq, cur_header_seq;
+     long	seq_last, seq_cur;
+     long	last_save_nr = 0;
+@@ -1974,7 +1974,8 @@ u_read_undo(char_u *name, char_u *hash,
+      * When there are no headers uhp_table is NULL. */
+     if (num_head > 0)
+     {
+-	uhp_table = (u_header_T **)U_ALLOC_LINE(
++	if (num_head < LONG_MAX / (long)sizeof(u_header_T *))
++	    uhp_table = (u_header_T **)U_ALLOC_LINE(
+ 					     num_head * sizeof(u_header_T *));
+ 	if (uhp_table == NULL)
+ 	    goto error;
