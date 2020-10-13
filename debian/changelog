@@ -1,3 +1,24 @@
+vim (2:7.4.1689-3ubuntu1.5) xenial-security; urgency=medium
+
+  * SECURITY UPDATE: incorrect group ownership of .swp file
+    - debian/patches/CVE-2017-17087.patch: use correct group in
+      src/fileio.c.
+    - CVE-2017-17087
+  * SECURITY UPDATE: rvim restricted mode circumvention
+    - debian/patches/CVE-2019-20807-pre1.patch: add checks for restricted
+      and secure in src/eval.c.
+    - debian/patches/CVE-2019-20807-pre2.patch: update documentation in
+      runtime/doc/starting.txt.
+    - debian/patches/CVE-2019-20807-1.patch: disable using interfaces in
+      restricted mode in runtime/doc/starting.txt, src/eval.c,
+      src/ex_cmds.c, src/ex_docmd.c, src/if_perl.xs,
+      src/testdir/Make_all.mak, src/testdir/test_restricted.vim.
+    - debian/patches/CVE-2019-20807-2.patch: missing some changes for Ex
+      commands in src/ex_cmds.h.
+    - CVE-2019-20807
+
+ -- Marc Deslauriers <marc.deslauriers@ubuntu.com>  Tue, 13 Oct 2020 12:04:38 -0400
+
 vim (2:7.4.1689-3ubuntu1.4) xenial-security; urgency=medium
 
   * SECURITY UPDATE: Denial of service

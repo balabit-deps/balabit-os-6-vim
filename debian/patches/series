@@ -15,3 +15,8 @@ patch-8.0.0703-illegal-memory-access-with-empty-doau-comm.patch
 patch-8.0.0707-freeing-wrong-memory-with-certain-autocomm.patch
 patch-8.0.0377-possible-overflow-when-reading-corrupted-u.patch
 patch-8.0.0378-possible-overflow-when-reading-corrupted-u.patch
+CVE-2017-17087.patch
+CVE-2019-20807-pre1.patch
+CVE-2019-20807-pre2.patch
+CVE-2019-20807-1.patch
+CVE-2019-20807-2.patch
